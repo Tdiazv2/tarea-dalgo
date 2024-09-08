@@ -15,4 +15,4 @@ def Jackpot(lista, maximo):
 
 
 
-print(Jackpot([5,12,-4,-10,4,9,3,-2,-1,-2,0],0))
+print(Jackpot([12,-4,-10,4,9,3,-2,-1,-2,0],0))
