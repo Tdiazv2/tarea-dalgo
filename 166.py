@@ -76,6 +76,6 @@ if __name__ == "__main__":
     
     caso = sys.stdin.readline().strip()
     while caso != terminal:
-        print(caso)
+        print(auxiliar(caso))
         caso = sys.stdin.readline().strip()
 
