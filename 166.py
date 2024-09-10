@@ -1,3 +1,6 @@
+import sys
+from decimal import Decimal
+
 def cambio(p,monedas,maximo_cambio):
 
     matriz = [[100000] * (len(monedas) + 1) for _ in range(maximo_cambio + 1)]
@@ -48,11 +51,15 @@ def organizar(p, maximo_cambio, matriz, true):
 
 
 
-def auxiliar(p,monedas):
+def auxiliar(input):
     valores_mon = [5, 10, 20, 50, 100, 200]
+
+    monedas = list(map(int, input.split()[:6]))
+    change = Decimal(input.split()[6])
+    p = int(change * 100)
     x=0
     todas_mon =[]
-    for i in range(len(monedas)):
+    for i in range(len(valores_mon)):
         todas_mon+= [valores_mon[i]]*monedas[i]
 
     maximo_cambio=p+max(todas_mon)
@@ -61,4 +68,14 @@ def auxiliar(p,monedas):
     q = cambio(p,todas_mon,maximo_cambio)
     return q
 
-print(auxiliar(95,[2,4,2,2,1,0]))
+
+
+if __name__ == "__main__":
+    
+    terminal = "0 0 0 0 0 0"
+    
+    caso = sys.stdin.readline().strip()
+    while caso != terminal:
+        print(caso)
+        caso = sys.stdin.readline().strip()
+
