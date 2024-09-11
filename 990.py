@@ -1,3 +1,4 @@
+import sys
 def diving_for_gold(t_w: tuple, num_treasures: int, list_treasures: list, lista: list, selected_treasures: list):
     if num_treasures <= 0:
         return 0, []
@@ -18,7 +19,7 @@ def diving_for_gold(t_w: tuple, num_treasures: int, list_treasures: list, lista:
             current_gold, current_combination = diving_for_gold((t_res, w), num_treasures, list_treasures, lista, selected_treasures)
             if gold + current_gold > q:
                 q = gold + current_gold
-                best_combination = current_combination + [i  ]  
+                best_combination = current_combination + [i]  
 
     lista[num_treasures] = q
     selected_treasures[num_treasures] = best_combination
@@ -38,8 +39,36 @@ def lista(t_w, num, list_treasure):
 
 
 
-max_gold,cantidad, selected_combination = lista((210, 4), 3, [(40, 5),(10, 1), (7, 2)])
+max_gold,cantidad, selected_combination = lista((210, 4), 3, [(10, 5),(10, 1), (7, 2)])
 print(f"Máximo oro: {max_gold}")
 print(f"Tamaño: {cantidad}")
-for i in selected_combination:
-    print("Selecciono " +str(i))
+print(selected_combination[::-1])
+
+
+
+if __name__ == "__main__":
+    
+    
+    
+    caso = sys.stdin.readline().strip()
+    contador = 0
+    listaa = []
+    tiempo = 0
+    n = 0
+    while caso != "":
+
+        if contador == 0:
+            tiempo = list(map(int, caso.split()))
+        elif contador ==1:
+            n =map(int,caso)
+        else:
+
+            sublista = list(map(int, caso.split()))
+            listaa.append(sublista)
+        contador +=1
+        caso = sys.stdin.readline().strip()
+    
+    max_gold,cantidad, selected_combination = lista(tiempo, n,listaa)
+    print(f"Máximo oro: {max_gold}")
+    print(f"Tamaño: {cantidad}")
+    print(selected_combination[::-1])
