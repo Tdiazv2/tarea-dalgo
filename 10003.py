@@ -6,7 +6,7 @@ def costo_minimo_cortes(longitud_madera, posiciones_cortes):
     for tamaño in range(2, num_cortes + 2):
         for inicio in range(num_cortes + 2 - tamaño):
             fin = inicio + tamaño
-            dp[inicio][fin] = float('inf')
+            dp[inicio][fin] = 10000000000
             for punto_corte in range(inicio + 1, fin):
                 dp[inicio][fin] = min(dp[inicio][fin], dp[inicio][punto_corte] + dp[punto_corte][fin] + cortes[fin] - cortes[inicio])
     
